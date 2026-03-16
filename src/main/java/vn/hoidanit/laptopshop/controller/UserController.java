@@ -1,6 +1,7 @@
 package vn.hoidanit.laptopshop.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,10 +17,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/duonglink")
-    public String getHomePage() {
+    @RequestMapping("/")
+    public String getHomePage(Model model) {
         String teString = userService.handleHello();
-
+        model.addAttribute("message", teString);
+        model.addAttribute("variable", "form controller with model");
         return "hello";
     }
 }
