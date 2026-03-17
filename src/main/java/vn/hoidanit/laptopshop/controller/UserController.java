@@ -25,13 +25,19 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
-        List<User> userList = userService.getAllUser();
-        System.out.println(userList);
         return "hello";
     }
 
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
+        List<User> userList = userService.getAllUser();
+        model.addAttribute("userList", userList);
+        model.addAttribute("newUser", new User());
+        return "admin/user/index";
+    }
+
+    @RequestMapping("/admin/user/create")
+    public String createUserPage(Model model) {
         model.addAttribute("newUser", new User());
         return "admin/user/create";
     }
@@ -40,7 +46,7 @@ public class UserController {
     public String createUserPage(Model model, @ModelAttribute("newUser") User user) {
         System.out.println("run here" + user);
         userService.handleSaveUser(user);
-        return "hello";
+        return "redirect:/admin/user";
     }
 
 }
