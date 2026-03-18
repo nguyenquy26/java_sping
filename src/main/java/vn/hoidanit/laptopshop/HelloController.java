@@ -9,9 +9,4 @@ public class HelloController {
     public String userPage() {
         return "Only user page";
     }
-
-    @GetMapping("/admin")
-    public String adminPage() {
-        return "Only admin page";
-    }
 }

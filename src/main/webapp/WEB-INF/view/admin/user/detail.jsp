@@ -10,7 +10,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="" />
                 <meta name="author" content="" />
-                <title>Dashboard - Product Admin</title>
+                <title>User Details</title>
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
@@ -25,28 +25,34 @@
                                 <h1 class="mt-4"></h1>
                             </div>
 
-
                             <body>
                                 <div class="container mt-5">
                                     <div class="row">
-                                        <h3>Delete User with ID = ${id}</h3>
-                                        <div class="col-md-12 col-12 mx-auto mt-1">
-                                            <div class="alert alert-danger" role="alert">
-                                                Are you want to delete this user?
+                                        <div class="col-md-12 col-12 mx-auto">
+                                            <div class="d-flex justify-content-between">
+                                                <h3>User Details with ID = ${id}</h3>
                                             </div>
-                                            <form:form method="post" action="/admin/user/delete"
-                                                modelAttribute="deleteUser">
-                                                <div class="mb-3" style="display: none;">
-                                                    <form:input type="text" class="form-control" path="id"
-                                                        value="${id}" />
+                                            <hr />
+                                            <div class="card" style="width: 60%;">
+                                                <div class="card-header">
+                                                    User information
                                                 </div>
-                                                <button type="submit" class="btn btn-danger">Confirm</button>
-                                            </form:form>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">ID:${user.id} </li>
+                                                    <li class="list-group-item">Email: ${user.email}</li>
+                                                    <li class="list-group-item">FullName:${user.fullName}</li>
+                                                    <li class="list-group-item">Address:${user.address}</li>
+                                                    <li class="list-group-item">Phone:${user.phone}</li>
+                                                </ul>
+                                            </div>
+                                            <a href="/admin/user" class="btn btn-warning mt-5">Back to
+                                                ListUsers</a>
                                         </div>
                                     </div>
                                 </div>
 
                             </body>
+
                         </main>
                         <jsp:include page="../layout/footer.jsp" />
                     </div>
