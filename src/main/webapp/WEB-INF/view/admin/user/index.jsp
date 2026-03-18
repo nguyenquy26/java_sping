@@ -43,9 +43,9 @@
                                         <td>${user.fullName}</td>
                                         <td>${user.address}</td>
                                         <td>
-                                            <a href="view/${user.id}" class="btn btn-info">View</a>
-                                            <a href="update/${user.id}" class="btn btn-warning">Update</a>
-                                            <a href="delete/${user.id}" class="btn btn-danger">Delete</a>
+                                            <a href="user/${user.id}" class="btn btn-info">View</a>
+                                            <a href="user/update/${user.id}" class="btn btn-warning">Update</a>
+                                            <a href="user/delete/${user.id}" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
