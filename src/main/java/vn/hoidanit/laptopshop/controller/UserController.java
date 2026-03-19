@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.ServletContext;
+import vn.hoidanit.laptopshop.domain.Role;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.repository.UserRepository;
 import vn.hoidanit.laptopshop.service.UploadService;
@@ -78,7 +79,7 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
-    @RequestMapping("/admin/user/update/{id}")
+    @GetMapping("/admin/user/update/{id}")
     public String getUpdateUser(@PathVariable Long id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("updateUser", user);
@@ -87,9 +88,15 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/update")
-    public String postUpdateUser(Model model, @ModelAttribute("updateUser") User user) {
+    public String postUpdateUser(Model model, @ModelAttribute("updateUser") User user,
+            @RequestParam("fileUpload") MultipartFile file) {
         User currentUser = userService.getUserById(user.getId());
+        String pathAvatar = uploadService.handleSaveUploadFile(file, "avatar");
+        String hashPassword = passwordEncoder.encode(user.getPassword());
         if (currentUser != null) {
+            currentUser.setAvatar(pathAvatar);
+            currentUser.setPassword(hashPassword);
+            currentUser.setRole(userService.getRoleByName(user.getRole().getName()));
             currentUser.setFullName(user.getFullName());
             currentUser.setEmail(user.getEmail());
             currentUser.setAddress(user.getAddress());

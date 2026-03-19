@@ -42,9 +42,11 @@
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>Email</th>
+                                                        <th>Role</th>
                                                         <th>FullName</th>
                                                         <th>Address</th>
                                                         <th>Action</th>
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -52,6 +54,7 @@
                                                         <tr>
                                                             <td>${user.id}</td>
                                                             <td>${user.email}</td>
+                                                            <td>${user.role.name}</td>
                                                             <td>${user.fullName}</td>
                                                             <td>${user.address}</td>
                                                             <td>
