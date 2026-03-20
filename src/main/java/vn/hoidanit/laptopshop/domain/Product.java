@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "products")
@@ -13,14 +16,31 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotEmpty(message = "Name is required")
     private String name;
-    private double price;
+
+    @NotNull(message = "Price is required")
+    @Min(value = 1, message = "Price must be greater than 0")
+    private Double price;
+
     private String image;
+
+    @NotEmpty(message = "Detail description is required")
     private String detailDesc;
+
+    @NotEmpty(message = "Short description is required")
     private String shortDesc;
-    private long quantity;
+
+    @NotNull(message = "Quantity is required")
+    @Min(value = 1, message = "Quantity must be greater than 0")
+    private Long quantity;
+
     private long sold;
+
+    @NotEmpty(message = "Factory is required")
     private String factory;
+
+    @NotEmpty(message = "Target is required")
     private String target;
 
     public long getId() {
@@ -39,11 +59,11 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -71,11 +91,11 @@ public class Product {
         this.shortDesc = shortDesc;
     }
 
-    public long getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

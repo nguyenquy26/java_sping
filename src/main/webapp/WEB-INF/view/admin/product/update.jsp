@@ -43,11 +43,15 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mx-auto">
-                                            <h3>Create a product</h3>
+                                            <h3>Update product</h3>
                                             <hr />
-                                            <form:form method="post" action="/admin/product/create"
-                                                modelAttribute="newProduct" class="row" enctype="multipart/form-data">
-
+                                            <form:form method="post" action="/admin/product/update"
+                                                modelAttribute="updateProduct" class="row"
+                                                enctype="multipart/form-data">
+                                                <div class="mb-3" style="display: none;">
+                                                    <label class="form-label">Id:</label>
+                                                    <form:input type="text" class="form-control" path="id" />
+                                                </div>
                                                 <!-- Name -->
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Name:</label>
@@ -127,7 +131,7 @@
                                                 </div>
 
                                                 <div class="col-12 mb-3">
-                                                    <button type="submit" class="btn btn-primary">Create</button>
+                                                    <button type="submit" class="btn btn-primary">Update</button>
                                                 </div>
                                             </form:form>
                                         </div>
@@ -141,7 +145,7 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
-                <script src="/js/scripts.js"></script>
+                <script src="../js/scripts.js"></script>
             </body>
 
             </html>
