@@ -31,4 +31,8 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    public List<Object[]> getFactorySummary() {
+        return productRepository.getFactorySummary();
+    }
+
 }
