@@ -21,4 +21,9 @@ public class HomePasgeController {
         return "client/homepage/show";
     }
 
+    @GetMapping("register")
+    public String getRegister(Model model) {
+        return "client/auth/register";
+    }
+
 }
