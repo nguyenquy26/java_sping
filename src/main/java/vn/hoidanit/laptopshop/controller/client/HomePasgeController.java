@@ -19,6 +19,8 @@ import vn.hoidanit.laptopshop.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -35,8 +37,10 @@ public class HomePasgeController {
     }
 
     @GetMapping("/")
-    public String getHomePage(Model model) {
+    public String getHomePage(Model model, HttpServletRequest request) {
         model.addAttribute("productList", productService.getAllProduct());
+        HttpSession session = request.getSession(false);
+
         return "client/homepage/show";
     }
 
@@ -67,4 +71,8 @@ public class HomePasgeController {
         return "client/auth/login";
     }
 
+    @GetMapping("/access-deny")
+    public String getDenyPage(Model model) {
+        return "client/auth/deny";
+    }
 }
