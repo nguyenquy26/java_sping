@@ -31,11 +31,10 @@ public class User {
     @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
-    @NotEmpty(message = "Fullname is required")
     private String fullName;
-    @NotEmpty(message = "Address is required")
+
     private String address;
-    @NotEmpty(message = "Phone is required")
+
     private String phone;
     private String avatar;
 
