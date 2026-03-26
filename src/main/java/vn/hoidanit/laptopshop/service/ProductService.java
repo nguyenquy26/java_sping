@@ -49,6 +49,10 @@ public class ProductService {
         return productRepository.getFactorySummary();
     }
 
+    public Cart getCartByUser(User user) {
+        return cartRepository.findByUser(user);
+    }
+
     public void handleAddProductToCart(String email, long productId, HttpSession session) {
         User user = userService.getUserByEmail(email);
         if (user != null) {
