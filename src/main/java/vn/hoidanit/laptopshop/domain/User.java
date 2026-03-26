@@ -128,4 +128,12 @@ public class User {
         this.orders = orders;
     }
 
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
 }
