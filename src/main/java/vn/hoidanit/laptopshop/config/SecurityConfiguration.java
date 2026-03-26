@@ -53,6 +53,8 @@ public class SecurityConfiguration {
     // authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     // return authenticationManagerBuilder.build();
     // }
+
+    // XAC THUC NGUOI DUNG bang cach so sanh mat khau o client voi database
     @Bean
     public DaoAuthenticationProvider authenProvider(PasswordEncoder passwordEncoder,
             UserDetailsService userDetailsService) {
