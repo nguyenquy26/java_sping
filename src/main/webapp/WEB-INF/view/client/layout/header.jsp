@@ -13,12 +13,12 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav ">
-                            <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                            <a href="/" class="nav-item nav-link active">Trang chủ</a>
                             <a href="shop.html" class="nav-item nav-link">Sản phẩm</a>
                             <div class="nav-item dropdown">
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="cart.html" class="dropdown-item">Cart</a>
-                                    <a href="chackout.html" class="dropdown-item">Checkout</a>
+                                    <a href="/cart" class="dropdown-item">Cart</a>
+                                    <a href="/checkout" class="dropdown-item">Checkout</a>
                                     <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                     <a href="404.html" class="dropdown-item">404 Page</a>
                                 </div>
